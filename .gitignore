@@ -1,6 +1,6 @@
 
 # Ignore Projects
-.ROOT/*
+_ROOT/*
 
 # Ignore Files
 .secrets
