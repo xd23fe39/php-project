@@ -1,0 +1,8 @@
+
+# Ignore Projects
+.ROOT/*
+
+# Ignore Files
+.secrets
+.secrets.php
+.secrets.sh
