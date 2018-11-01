@@ -2,6 +2,10 @@
 #
 # PHP Project Builder
 
+# Setze aktuelles Verzeichnis auf BASEDIR
+DIR=$(pwd)
+BASEDIR=$(cd `dirname $0`; cd ..; pwd)
+
 OPER=$1
 PHPCMD=$(which php)
 CURDIR=$(pwd)
@@ -10,7 +14,9 @@ ROOTDIR="_ROOT"
 
 function _usage {
     echo
-    echo Usage: 
+    echo Usage: php-project [command] [argument]
+    echo
+    echo    command: serve 
     echo
 }
 
@@ -24,6 +30,10 @@ function _setenv() {
         echo; echo "Current directory is not a BASEDIR!"; echo
         exit 400
     fi
+}
+
+function _serve() {
+    php -S 0.0.0.0:8080 -t $BASEDIR/www
 }
 
 function _test() {
@@ -55,6 +65,9 @@ function oper() {
 }
 
 case $1 in
+    --serve|serve|-s)
+      oper "serve"
+      ;;
     --help|help|-h)
       oper "usage"
       ;;

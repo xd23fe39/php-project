@@ -2,6 +2,10 @@
 
 ## Aufruf
 
+```sh
+php-project serve
+```
+
 ## Voraussetzungen
 
 Installation von PHP auf dem Entwicklerarbeitsplatz:
