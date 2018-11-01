@@ -16,6 +16,13 @@ Für Ubuntu:
 sudo apt install php7.0-cli
 ```
 
+Umgebung für php-project setzen:
+
+```sh
+cd php-project/bin
+./php-project setenv
+```
+
 ## GIT Workflow
 
 ### Initialisieren

@@ -21,15 +21,11 @@ function _usage {
 }
 
 function _setenv() {
-    if [ -d "$CURDIR/bin" ];then
-        export BASEDIR=$CURDIR
-        export PATH=$PATH:$CURDIR/bin
-        alias php-project="php-project.sh"
-        return 0
-    else
-        echo; echo "Current directory is not a BASEDIR!"; echo
-        exit 400
-    fi
+    echo
+    echo "export BASEDIR=$BASEDIR"
+    echo "export PATH=$PATH:$BASEDIR/bin"
+    echo "alias php-project=\"$BASEDIR/bin/php-project.sh\"" 
+    echo
 }
 
 function _serve() {
@@ -37,6 +33,7 @@ function _serve() {
 }
 
 function _test() {
+    echo "Base Dir: $BASEDIR";echo
     if [ ! -x "$PHPCMD" ]; then
         echo; echo "PHP (CLI) is not available or not installed!"; echo 
         exit 500;
@@ -73,6 +70,9 @@ case $1 in
       ;;
     --test|test|-t) 
       oper "test"
+      ;;
+    --setenv|setenv) 
+      oper "setenv"
       ;;
     *)
       oper "usage"
