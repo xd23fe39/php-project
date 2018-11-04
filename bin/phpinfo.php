@@ -21,5 +21,8 @@ if ($argc > 1) {
     print_r($argv);
 }
 
+if (is_array($config))
+    printf("\nConfiguration Output:\n%s\n" , json_encode($config));
+
 printf("\nCompleted!\n\n");
 ?>
