@@ -11,6 +11,7 @@ if (file_exists('./etc/application.config.php')) {
     printf("\nApplication Name: %s\n", $config["Application"]["Name"]);
     printf("Application Version: %s\n", $config["Application"]["Version"]);
     printf("Current Directory: %s\n", __DIR__);
+    printf("BASE Directory: %s\n", dirname(__DIR__));
 }
 else 
     die("No application configuratio9n file found!");

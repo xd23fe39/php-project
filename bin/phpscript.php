@@ -28,9 +28,9 @@ printf("\nCompleted!\n\n");
  */
 function _applinfo(array $_config) {
     $config = $_config;
-    printf("\nApplication Name:                                                                                             %s\n", $config["Application"]["Name"]);
+    printf("\nApplication Name: %s\n", $config["Application"]["Name"]);
     printf("Application Version: %s\n", $config["Application"]["Version"]);
-    printf("Current Directory: %s\n", dirname(__DIR__));
+    printf("BASE Directory: %s\n", dirname(__DIR__));
 }                                                                                           
 
 ?>
