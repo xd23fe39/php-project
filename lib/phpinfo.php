@@ -74,6 +74,6 @@ $func = $argv[1];
 if ( method_exists($app, $func) )
     $app->$func($argv[2]);
 
-$app->expose("Goodby!");
+$app->expose("Goodbye!");
 
 ?>
