@@ -58,7 +58,7 @@ class Application {
 
     public static function args() {
         global $argv;
-        self::expose(json_encode($argv));
+        self::expose("ARGV: " . json_encode($argv));
     }
 }
 
