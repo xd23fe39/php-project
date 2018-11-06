@@ -21,6 +21,8 @@ if (is_array($config))
 else
     die("Configuration information is not available!");
 
+printf("\nJSON:\n%s\n", json_encode($config));
+
 printf("\nCompleted!\n\n");
 
 /**
