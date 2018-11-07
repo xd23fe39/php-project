@@ -47,7 +47,7 @@ class Application {
     public static function refresh() {
         self::$MC_UPDATE = 0;
         self::$UT_START = time();
-        self::$UT_LAP = time();
+        self::$UT_LAP = self::$UT_START;
         self::$DT_NOW = date("Y-m-d H:i:s");
     }
 
