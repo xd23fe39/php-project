@@ -5,7 +5,8 @@
 chdir(dirname(__DIR__));
 
 // PHP-Module importieren
-require './etc/application.config.php';
+require 'etc/application.config.php';
+require 'lib/application.lib.php';
 
 /**
  * Hauptprogramm (GLOBAL)
