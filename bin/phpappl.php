@@ -3,17 +3,12 @@
 
 namespace main;
 
-define("LF", "\n");
+// Setze das BASEDIR-Verzeichnis (vereinfacht das Entwicklerleben)
+chdir(dirname(__DIR__));
 
-function _php_initial() {
-    set_time_limit(30);                                 // Time limit
-    error_reporting(E_ERROR | E_WARNING);               // Reporting errors amd warnings
-    ini_set('error_reporting', E_ERROR | E_WARNING);    // Reporting errors amd warnings
-    ini_set('display_errors', 1);                       // Display errors
-    date_default_timezone_set('Europe/Berlin');         // Timezone settings eg. UTC or Europe/Berlin
-}
+require "lib/application.lib.php";
 
-class Application {
+final class Application {
 
     private static $UT_START;
     private static $UT_LAP;
@@ -21,7 +16,7 @@ class Application {
     private static $MC_UPDATE = 0;
 
     final public function __construct() {
-        _php_initial();
+        _phpbase_initial(true);
         self::$UT_START = time();
     }
 
@@ -56,9 +51,13 @@ class Application {
         printf("%s (%d) - %s\n", self::$DT_NOW, self::$MC_UPDATE, $msg);
     }
 
-    public static function args() {
+    public static function exposeGlobal($name) {
+        self::expose($name . ": " . $GLOBALS[$name]);
+    }
+
+    public static function exposeArgs() {
         global $argv;
-        self::expose("ARGV: " . json_encode($argv));
+        self::expose("Args: " . json_encode($argv));
     }
 }
 
@@ -68,11 +67,11 @@ Application::expose("Hello");
 // Using an instance of class Application
 $app = new Application();
 $app->expose("World");
-$app->args();
 
 $func = $argv[1];
 if ( method_exists($app, $func) )
     $app->$func($argv[2]);
+else if (!empty($func)) $app->expose("Unknown method: $func");
 
 $app->expose("Goodbye!");
 
