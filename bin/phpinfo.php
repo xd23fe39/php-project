@@ -24,5 +24,12 @@ if ($argc > 1) {
 if (is_array($config))
     printf("\nConfiguration Output:\n%s\n" , json_encode($config));
 
+$PHP_BASE = getenv('PHP_BASE');
+
+if ($PHP_BASE)
+    printf("\nPHP_BASE gefunden. %s\n", $PHP_BASE);
+else
+    printf("\nPHP_BASE nicht gefunden: Beispiel: \n  export PHP_BASE=%s\n", __DIR__);
+
 printf("\nCompleted!\n\n");
 ?>
