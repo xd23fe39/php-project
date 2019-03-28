@@ -13,7 +13,7 @@ Installation von PHP auf dem Entwicklerarbeitsplatz:
 Für Ubuntu:
 
 ```sh
-sudo apt install php7.0-cli
+sudo apt install php7.0-cli-
 ```
 
 Umgebung für php-project setzen:
